@@ -1,19 +1,34 @@
-//
-//  ContentView.swift
-//  scrumfy
-//
-//  Created by richmond gyekye on 07/06/2023.
-//
-
 import SwiftUI
 
+
 struct ContentView: View {
+    
+    // UI
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            ProgressView(value: 5, total: 20)
+            HStack{
+                VStack(alignment: .leading) {
+                    Text("Seconds Elapsed")
+                    Label("300", systemImage: "hourglass.tophalf.fill")
+                }
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text("Seconds Remaining")
+                    Label("600", systemImage: "hourglass.bottomhalf.fill")
+                }
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("Time remaining")
+            .accessibilityValue("10 minutes")
+            
+            Circle()
+                .strokeBorder(lineWidth: 20, antialiased: true)
+            HStack{
+                Text("Speaker 1 of 3")
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("Next Speaker")
         }
         .padding()
     }

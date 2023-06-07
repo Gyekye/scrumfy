@@ -1,17 +1,13 @@
-//
-//  scrumfyApp.swift
-//  scrumfy
-//
-//  Created by richmond gyekye on 07/06/2023.
-//
-
 import SwiftUI
 
+// Entry point of application
 @main
 struct scrumfyApp: App {
+    @State private var scrums = Scrum.mock
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Scrums(scrums: $scrums )
         }
     }
 }
