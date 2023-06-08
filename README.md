@@ -17,3 +17,4 @@ The Scrum App is a project management tool built with Swift and SwiftUI. It help
 - Xcode 12.0+
 - Swift 5.0+
 
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-06-08 at 13 50 44](https://github.com/Gyekye/scrumfy/assets/63736118/15cf2830-0f53-4b47-9fe6-99ff99eade9d)
