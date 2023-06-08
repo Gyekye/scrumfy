@@ -2,7 +2,7 @@ import Foundation
 
 
 /// Model for a scrum
-struct Scrum: Identifiable {
+struct Scrum: Identifiable, Codable {
     /// Id of Scrum
     let id: UUID
     /// Title of scrum
@@ -40,7 +40,7 @@ struct Scrum: Identifiable {
 
 /// Extension to model an attendee entity into Scrum
 extension Scrum {
-    struct Attendee: Identifiable {
+    struct Attendee: Identifiable, Codable {
         /// Attendee Id
         let id: UUID
         

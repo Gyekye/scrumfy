@@ -4,9 +4,11 @@ import SwiftUI
 struct Scrums: View {
     // External dependencies
     @Binding var scrums: [Scrum]
+    let saveAction: () -> Void
     
     // Internal dependencies
     @State private var isPresentingNewScrumView = false
+    @Environment(\.scenePhase) private var scenePhase
     
     // UI
     var body: some View {
@@ -28,6 +30,9 @@ struct Scrums: View {
                 .sheet(isPresented: $isPresentingNewScrumView) {
                     ScrumCreate(scrums: $scrums, isPresentingNewScrumView: $isPresentingNewScrumView)
                 }
+                .onChange(of: scenePhase ) { phase in
+                    if phase == .inactive { saveAction() }
+                }
             }
         }
     }
@@ -36,7 +41,7 @@ struct Scrums: View {
 struct Scrums_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            Scrums(scrums: .constant(Scrum.mock))
+            Scrums(scrums: .constant(Scrum.mock), saveAction: {})
         }
     }
 }
